@@ -195,6 +195,9 @@ public sealed partial class XenoSystem : EntitySystem
         _transform.SetWorldRotation(newXeno, oldRotation);
 
         _imaginaryFriend.TryTransferFriends(args.OldXeno, newXeno);
+
+        if (_status.TryGetTime(args.OldXeno, "Muted", out var time))
+            _status.TryAddStatusEffect(newXeno, "Muted", _xenoSpawnMuteDuration, true, "Muted");
     }
 
     private void OnXenoDevolved(Entity<XenoComponent> newXeno, ref XenoDevolvedEvent args)
