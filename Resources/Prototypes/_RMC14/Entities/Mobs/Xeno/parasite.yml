@@ -177,6 +177,7 @@
     - ActionXenoWatch
     - ActionXenoLeap
     - ActionXenoZoom
+    muteOnSpawn: false
   - type: XenoStrain
     name: rmc-xeno-watcher-name
     description: rmc-xeno-watcher-description
