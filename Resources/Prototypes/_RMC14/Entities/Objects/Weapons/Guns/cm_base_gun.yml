@@ -45,6 +45,7 @@
     meleeCooldownOnShoot: false
     resetOnHandSelected: false
     burstCooldown: 0
+    canSuicide: true
   - type: RMCWeaponAccuracy
   - type: GunSkilledAccuracy
   - type: Appearance
