@@ -276,6 +276,13 @@ public sealed partial class GunComponent : Component
     /// <example>[0, -1] means the projectile spawns 1 tile in front of the shooter</example>
     [DataField]
     public Vector2 ShootOriginOffset = Vector2.Zero;
+
+    // RMC14
+    /// <summary>
+    /// Whether or not this gun can be used for suicide actions.
+    /// </summary>
+    [DataField]
+    public bool CanSuicide = true;
 }
 
 [Flags]
