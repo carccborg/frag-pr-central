@@ -68,5 +68,11 @@ public sealed class AttachableIFFSystem : EntitySystem
             EnsureComp<GunAttachableIFFComponent>(gun);
         else
             RemCompDeferred<GunAttachableIFFComponent>(gun);
+
+        if (TryComp<GunComponent>(gun, out var gunComp))
+        {
+            gunComp.CanSuicide = !ev.Grants;
+            Dirty(gun, gunComp);
+        }
     }
 }
