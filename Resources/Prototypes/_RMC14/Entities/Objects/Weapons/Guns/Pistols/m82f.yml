@@ -28,6 +28,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
+    canSuicide: false
   - type: RMCAmmoEject
     containerID: ballistic-ammo
     ejectSound:
