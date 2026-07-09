@@ -46,7 +46,8 @@ public sealed class RMCSuicideSystem : EntitySystem
             return;
 
         if (!_hands.TryGetActiveItem(args.Target, out var active) ||
-            !HasComp<GunComponent>(active))
+            !TryComp<GunComponent>(active, out var gun) ||
+            !gun.CanSuicide)
         {
             return;
         }
