@@ -282,6 +282,7 @@ public sealed partial class GunComponent : Component
     /// Whether or not this gun can be used for suicide actions.
     /// </summary>
     [DataField]
+    [AutoNetworkedField]
     public bool CanSuicide = false;
 }
 
