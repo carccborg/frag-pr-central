@@ -17,3 +17,5 @@
   - type: GuideHelp
     guides:
     - RMCGuideRoleMilitaryPolice
+  - type: Gun
+    canSuicide: false
