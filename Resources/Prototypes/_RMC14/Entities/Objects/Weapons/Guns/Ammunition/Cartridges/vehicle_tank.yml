@@ -220,7 +220,7 @@
     forceSound: true
     damage:
       types:
-        Heat: 30
+        Heat: 35
     soundHit: null
   - type: TriggerOnFixedDistanceStop
     delay: 0
