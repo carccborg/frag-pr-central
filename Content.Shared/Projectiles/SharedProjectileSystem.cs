@@ -104,22 +104,27 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
             return;
-
+            
+        // RMC14 xenos should not take heat projectile damage from sentries
+        var damage = new DamageSpecifier(ev.Damage);
+        if (HasComp<SentryComponent>(component.Shooter) && (HasComp<RMCImmuneToFireTileDamageComponent>(target) || HasComp<HiveBoonFireImmunityComponent>(target)))
+            damage.DamageDict.Remove("Heat");
+        
         var coordinates = Transform(projectile).Coordinates;
         var otherName = ToPrettyString(target);
         var modifiedDamage = _net.IsServer
             ? _damageableSystem.TryChangeDamage(target,
-                ev.Damage,
+                damage,
                 component.IgnoreResistances,
                 origin: component.Shooter,
                 tool: uid)
-            : new DamageSpecifier(ev.Damage);
+            : damage;
         var deleted = Deleted(target);
 
         // RMC14 this is already done on the server in TryChangeDamage.
         if (_net.IsClient)
         {
-            var modifyEvent = new DamageModifyEvent(ev.Damage, component.Shooter, uid);
+            var modifyEvent = new DamageModifyEvent(damage, component.Shooter, uid);
             RaiseLocalEvent(target, modifyEvent);
             modifiedDamage = modifyEvent.Damage;
         }
