@@ -19,19 +19,52 @@ public sealed class RMCIdLockableNightVisionSystem : EntitySystem
 
   public override void Initialize()
   {
-    SubscribeLocalEvent<RMCIdLockableNightVisionComponent, InteractUsingEvent>(OnInteractUsing);
     SubscribeLocalEvent<RMCIdLockableNightVisionComponent, BeingEquippedAttemptEvent>(OnBeingEquipped);
-  }
-
-  private void OnInteractUsing(Entity<RMCIdLockableNightVisionComponent> ent, ref InteractUsingEvent args)
-  {
-    if (args.Cancelled)
-        return
+    SubscribeLocalEvent<RMCIdLockableNightVisionComponent, InteractUsingEvent>(OnInteractUsing);
   }
 
   private void OnBeingEquipped(Entity<RMCIdLockableNightVisionComponent> ent, ref BeingEquippedAttemptEvent args)
   {
     if (args.Cancelled)
-        return
+        return;
+        
+    // require a valid ID to equip the sight
+    if (!_idCard.TryFindIdCard(args.Equipee, out var idCard) || string.IsNullOrWhiteSpace(idCard.Comp.FullName))
+    {
+        args.Cancelled = true;
+        // args.Reason = ""; requires a valid id
+        // do smallcaution popupclient here
+        return;
+    }
+
+    var name = idCard.Comp.FullName;
+
+    // first valid equip locks the sight
+    if (!ent.Comp.Locked)
+    {
+        ent.Comp.Locked = true;
+        ent.Comp.OwnerName = name;
+        Dirty(ent);
+
+        // sight locked
+        // do smallcaution popupclient here
+        return;
+    }
+
+    // already owned by this ID
+    if (ent.Comp.OwnerName == name)
+        return;
+
+    // otherwise, wrong ID
+    args.Cancelled = true;
+
+    // already locked to owner
+    // do smallcaution popupclient here
+  }
+  
+  private void OnInteractUsing(Entity<RMCIdLockableNightVisionComponent> ent, ref InteractUsingEvent args)
+  {
+    if (args.Cancelled)
+        return;
   }
 }
