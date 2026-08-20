@@ -1,6 +1,6 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Equipment;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 
@@ -20,10 +20,18 @@ public sealed class RMCIdLockableNightVisionSystem : EntitySystem
   public override void Initialize()
   {
     SubscribeLocalEvent<RMCIdLockableNightVisionComponent, InteractUsingEvent>(OnInteractUsing);
+    SubscribeLocalEvent<RMCIdLockableNightVisionComponent, BeingEquippedAttemptEvent>(OnBeingEquipped);
   }
 
   private void OnInteractUsing(Entity<RMCIdLockableNightVisionComponent> ent, ref InteractUsingEvent args)
   {
-    
+    if (args.Cancelled)
+        return
+  }
+
+  private void OnBeingEquipped(Entity<RMCIdLockableNightVisionComponent> ent, ref BeingEquippedAttemptEvent args)
+  {
+    if (args.Cancelled)
+        return
   }
 }
