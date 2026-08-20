@@ -6,8 +6,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._RMC14.NightVision;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(RMCNightVisionIdLockableSystem))]
-public sealed partial class RMCNightVisionIdLockComponent : Component
+[Access(typeof(RMCIdLockableNightVisionSystem))]
+public sealed partial class RMCIdLockableNightVisionComponent : Component
 {
     /// <summary>
     /// Current lock state shown to gameplay and visuals.
