@@ -64,7 +64,27 @@ public sealed class RMCIdLockableNightVisionSystem : EntitySystem
   
   private void OnInteractUsing(Entity<RMCIdLockableNightVisionComponent> ent, ref InteractUsingEvent args)
   {
-    if (args.Cancelled)
+    if (args.Handled || !ent.Comp.Locked)
         return;
+
+    if (!_idCard.TryGetIdCard(args.Used, out var idCard))
+        return;
+
+    if (string.IsNullOrWhiteSpace(idCard.Comp.Fullname))
+        return;
+
+    var name = idCard.Comp.FullName;
+
+    if (name == ent.Comp.OwnerName)
+    {
+        ent.Comp.Locked = false;
+        ent.Comp.OwnerName = null;
+        Dirty(ent);
+
+        args.Handled = true;
+        return;
+    }
+
+    args.Handled = true;
   }
 }
