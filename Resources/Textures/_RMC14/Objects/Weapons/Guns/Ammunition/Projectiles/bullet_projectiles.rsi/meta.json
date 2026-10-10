@@ -1,14 +1,20 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/a86a9e2e57e5c00195cab704713a4962e8bc973a/icons/obj/items/weapons/projectiles.dmi",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/a86a9e2e57e5c00195cab704713a4962e8bc973a/icons/obj/items/weapons/projectiles.dmi;ap_bullet and incen_bullet modified from bullet by carccborg",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "bullet"
+        "name": "bullet"
+    },
+    {
+        "name": "ap_bullet"
+    },
+    {
+        "name": "incen_bullet"
     }
   ]
 }
