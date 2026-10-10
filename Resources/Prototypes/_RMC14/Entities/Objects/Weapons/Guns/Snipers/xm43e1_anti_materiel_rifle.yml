@@ -144,6 +144,11 @@
   - type: RMCStoppingPower
   - type: AimedShotEffect
     extraHits: 0.8
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCXM43E1AntiMaterielRifle
