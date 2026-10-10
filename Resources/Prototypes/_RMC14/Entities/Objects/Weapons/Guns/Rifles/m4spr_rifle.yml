@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   name: M4SPR battle rifle
   id: WeaponRifleM4SPR
@@ -535,6 +535,11 @@
       ignoreModifiers: true
   - type: RMCPenetratingProjectile
     rangeLossPerHit: 1
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: CMBaseCartridgeRifle
@@ -563,6 +568,11 @@
       stunTime: 1
       superSlowTime: 4
       slowTime: 10
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: hi_bullet
+      shader: unshaded
 
 - type: entity
   parent: RMCMagazineRifleM5SPRHVP
