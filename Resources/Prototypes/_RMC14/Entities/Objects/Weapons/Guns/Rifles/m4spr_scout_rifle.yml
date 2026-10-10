@@ -260,6 +260,11 @@
     - range: 24
       falloff: 9999
       ignoreModifiers: true
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: RMCBaseBullet
@@ -294,6 +299,11 @@
     - range: 24
       falloff: 9999
       ignoreModifiers: true
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: hi_bullet
+      shader: unshaded
 
 - type: entity
   parent: RMCBaseBullet
@@ -320,6 +330,11 @@
     - range: 24
       falloff: 9999
       ignoreModifiers: true
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: incen_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCMagazineRifleM4SPRA19

@@ -445,6 +445,11 @@
       components:
       - Marine
     knockdown: 4
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: hi_bullet
+      shader: unshaded
 
 - type: entity
   parent: RMCBulletMatebaHighImpact
@@ -458,6 +463,11 @@
         Piercing: 50
   - type: CMArmorPiercing
     amount: 50
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: CMBulletBase
@@ -479,6 +489,11 @@
       stunTime: 1
   - type: RMCProjectileAccuracy
     accuracy: 90
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: BaseStorageItem

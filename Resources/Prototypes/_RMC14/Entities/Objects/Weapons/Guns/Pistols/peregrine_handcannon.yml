@@ -315,6 +315,11 @@
       components:
       - Marine
     knockdown: 4
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: hi_bullet
+      shader: unshaded
 
 - type: entity
   parent: RMCBulletPistolHandcannonHI
