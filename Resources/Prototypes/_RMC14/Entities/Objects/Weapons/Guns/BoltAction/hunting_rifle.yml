@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [ CMBaseWeaponRifle, RMCBaseAttachableHolder, RMCBaseWeaponMagazineVisuals ]
   name: Basira-Armstrong bolt-action hunting rifle
   id: RMCWeaponBoltActionRifle
@@ -151,6 +151,11 @@
       stunTime: 0
       superSlowTime: 0
       slowTime: 0
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCMagazineRifleHunting

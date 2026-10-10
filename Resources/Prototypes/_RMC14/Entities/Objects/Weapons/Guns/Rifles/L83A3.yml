@@ -372,6 +372,11 @@
        types:
           Piercing: 30
   - type: IgniteOnProjectileHit
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: incen_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCMagazineRifleL83A3

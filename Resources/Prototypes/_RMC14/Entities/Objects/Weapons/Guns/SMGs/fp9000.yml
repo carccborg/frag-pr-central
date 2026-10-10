@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: CMBaseWeaponSMG
   name: FN FP9000 Submachinegun
   id: RMCWeaponSMGFP9000
@@ -240,6 +240,11 @@
         Piercing: 26
   - type: CMArmorPiercing
     amount: 30
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCMagazineSMGFP9000

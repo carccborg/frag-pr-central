@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   name: Type 71 assault rifle
   id: RMCWeaponRifleType71
@@ -358,6 +358,11 @@
         Piercing: 40
   - type: CMArmorPiercing
     amount: 50
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: RMCBulletRifle545x39mm

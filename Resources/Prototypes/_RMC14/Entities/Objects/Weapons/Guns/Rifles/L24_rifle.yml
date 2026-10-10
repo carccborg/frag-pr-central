@@ -396,6 +396,11 @@
         Piercing: 40
   - type: CMArmorPiercing
     amount: 50
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: BulletRifle10x24mm
@@ -433,6 +438,11 @@
   - type: CMArmorPiercing
     amount: 10
   - type: IgniteOnProjectileHit
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: incen_bullet
+      shader: unshaded
 
 
 - type: Tag

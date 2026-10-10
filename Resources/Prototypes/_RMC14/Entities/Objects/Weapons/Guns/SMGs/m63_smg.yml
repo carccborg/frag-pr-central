@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: CMBaseWeaponSMG
   name: M63 submachine gun
   id: WeaponSMGM63
@@ -497,6 +497,11 @@
         Piercing: 26
   - type: CMArmorPiercing
     amount: 30
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   parent: Bullet10x20mm
@@ -538,6 +543,11 @@
   - type: CMArmorPiercing
     amount: 5
   - type: IgniteOnProjectileHit
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: incen_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCWeaponSMGM63

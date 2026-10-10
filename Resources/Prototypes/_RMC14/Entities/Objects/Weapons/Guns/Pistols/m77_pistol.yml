@@ -168,6 +168,11 @@
         Piercing: 25
   - type: CMArmorPiercing
     amount: 40
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: entity
   id: CMCartridgePistolM77AP

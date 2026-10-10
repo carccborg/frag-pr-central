@@ -343,6 +343,11 @@
         Piercing: 18
   - type: CMArmorPiercing
     amount: 30
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: ap_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCWeaponPistolM13
