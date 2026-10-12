@@ -749,6 +749,11 @@
       falloff: 4
   - type: CMArmorPiercing
     amount: 40
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: heap_bullet
+      shader: unshaded
 
 - type: Tag
   id: RMCWeaponRifleM54CMK2

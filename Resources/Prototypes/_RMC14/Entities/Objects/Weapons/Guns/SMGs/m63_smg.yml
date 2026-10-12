@@ -514,6 +514,11 @@
         Piercing: 45
   - type: CMArmorPiercing
     amount: 30
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: heap_bullet
+      shader: unshaded
 
 - type: entity
   parent: Bullet10x20mm
