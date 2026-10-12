@@ -6,6 +6,7 @@ using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Emplacements;
 using Content.Shared._RMC14.Random;
 using Content.Shared._RMC14.Weapons.Ranged;
+using Content.Shared._RMC14.Weapons.Ranged.Ammo;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 // RMC14
@@ -629,7 +630,16 @@ public abstract partial class SharedGunSystem : EntitySystem
                     {
                         if (_netManager.IsServer || GunPrediction)
                         {
-                            var uid = Spawn(cartridge.Prototype, fromEnt);
+                            var projectilePrototype = cartridge.Prototype;
+
+                            // RMC
+                            // If the gun has the toggleable ammo component 
+                            if (TryComp<GunToggleableAmmoComponent>(gunUid, out var toggleAmmo))
+                            {
+                                projectilePrototype = toggleAmmo.Settings[toggleAmmo.Setting].Projectile;
+                            }
+                            // End RMC
+                            var uid = Spawn(projectilePrototype, fromEnt);
                             CreateAndFireProjectiles(uid, cartridge);
 
                             if (_netManager.IsClient && HasComp<GunIgnorePredictionComponent>(gunUid))

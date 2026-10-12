@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Weapons.Common;
 using Content.Shared.Actions;
@@ -27,7 +27,6 @@ public sealed class GunToggleableAmmoSystem : EntitySystem
 
         SubscribeLocalEvent<GunToggleableAmmoComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<GunToggleableAmmoComponent, GunToggleAmmoActionEvent>(OnToggleAmmoAction);
-        SubscribeLocalEvent<GunToggleableAmmoComponent, AmmoShotEvent>(OnAmmoShot);
         SubscribeLocalEvent<GunToggleableAmmoComponent, UniqueActionEvent>(OnUniqueAction);
     }
 
@@ -41,26 +40,6 @@ public sealed class GunToggleableAmmoSystem : EntitySystem
     {
         if (ToggleAmmo(ent, args.Performer))
             args.Handled = true;
-    }
-
-    private void OnAmmoShot(Entity<GunToggleableAmmoComponent> ent, ref AmmoShotEvent args)
-    {
-        var settingIndex = ent.Comp.Setting;
-        if (settingIndex < 0 || settingIndex >= ent.Comp.Settings.Count)
-            return;
-
-        ref var setting = ref CollectionsMarshal.AsSpan(ent.Comp.Settings)[settingIndex];
-        foreach (var projectile in args.FiredProjectiles)
-        {
-            if (_projectileQuery.TryComp(projectile, out var projectileComp))
-            {
-                projectileComp.Damage = new DamageSpecifier(setting.Damage);
-                Dirty(projectile, projectileComp);
-            }
-
-            if (_armorPiercingQuery.TryComp(projectile, out var armorPiercing))
-                _cmArmor.SetArmorPiercing((projectile, armorPiercing), setting.ArmorPiercing);
-        }
     }
 
     private void OnUniqueAction(Entity<GunToggleableAmmoComponent> ent, ref UniqueActionEvent args)

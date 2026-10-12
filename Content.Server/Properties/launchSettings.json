@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Content.Server": {
+      "commandName": "Project",
+      "commandLineArgs": "--cvar status.bind=127.0.0.1:40000"
+    }
+  }
+}

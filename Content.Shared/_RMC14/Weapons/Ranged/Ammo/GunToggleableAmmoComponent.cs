@@ -1,4 +1,5 @@
-﻿using Content.Shared.Damage;
+using Content.Shared.Damage;
+using Content.Shared.Projectiles;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -29,4 +30,4 @@ public sealed partial class GunToggleableAmmoComponent : Component
 
 [DataRecord]
 [Serializable, NetSerializable]
-public readonly record struct GunToggleableAmmoSetting(DamageSpecifier Damage, int ArmorPiercing, LocId Name, SpriteSpecifier.Rsi Icon);
+public readonly record struct GunToggleableAmmoSetting(EntProtoId<ProjectileComponent> Projectile, LocId Name, SpriteSpecifier Icon);

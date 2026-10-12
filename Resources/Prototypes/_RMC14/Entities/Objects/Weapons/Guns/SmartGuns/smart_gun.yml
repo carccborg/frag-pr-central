@@ -1,4 +1,4 @@
-﻿
+
 - type: entity
   abstract: true
   parent: [ CMBaseWeaponGun, BaseItem, RMCBaseAttachableHolder ]
@@ -102,18 +102,12 @@
     multiplier: 1
   - type: GunToggleableAmmo
     settings:
-    - damage:
-        types:
-          Piercing: 30
-      armorPiercing: 0
+    - projectile: CMBulletSmartGun10x30mm
       name: rmc-toggleable-ammo-highly-precise
       icon:
         sprite: _RMC14/Actions/marine_smart_gun_actions.rsi
         state: ammo_swap_normal
-    - damage:
-        types:
-          Piercing: 20
-      armorPiercing: 40
+    - projectile: RMCBulletSmartGun10x30mmAP
       name: rmc-toggleable-ammo-armor-shredding
       icon:
         sprite: _RMC14/Actions/marine_smart_gun_actions.rsi
@@ -226,18 +220,12 @@
           - SmartGunBattery
   - type: GunToggleableAmmo
     settings:
-    - damage:
-        types:
-          Piercing: 40
-      armorPiercing: 0
-      name: rmc-toggleable-ammo-highly-precise
+    - projectile: RMCBulletSmartGun10x30mmirradiated
+      name: rmc-toggleable-ammo-irradiated
       icon:
         sprite: _RMC14/Actions/marine_smart_gun_actions.rsi
         state: ammo_swap_normal
-    - damage:
-        types:
-          Piercing: 30
-      armorPiercing: 35
+    - projectile: RMCBulletSmartGun10x30mmAP
       name: rmc-toggleable-ammo-armor-shredding
       icon:
         sprite: _RMC14/Actions/marine_smart_gun_actions.rsi
@@ -463,6 +451,25 @@
     thresholds:
     - range: 5
       falloff: 10
+
+- type: entity
+  parent: CMBulletSmartGun10x30mm
+  id: RMCBulletSmartGun10x30mmAP
+  name: bullet (10x30mm AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    drawdepth: OverMobs
+    layers:
+    - state: ap_bullet
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: CMArmorPiercing
+    amount: 40
 
 - type: entity
   parent: CMBulletSmartGun10x30mm
