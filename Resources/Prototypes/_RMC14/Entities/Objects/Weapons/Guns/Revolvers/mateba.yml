@@ -492,7 +492,7 @@
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
     layers:
-    - state: ap_bullet
+    - state: heap_bullet
       shader: unshaded
 
 - type: entity
