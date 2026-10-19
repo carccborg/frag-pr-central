@@ -15,13 +15,16 @@
     soundGunshot:
       collection: RMCM13Shoot
   - type: RMCSelectiveFire
-    scatterWielded: 12    # SCATTER_AMOUNT_TIER_5 (6) * 2
-    scatterUnwielded: 14  # SCATTER_AMOUNT_TIER_4 (7) * 2
-    baseFireRate: 10      # FIRE_DELAY_TIER_12    1 / ((1) / 10)
+    scatterWielded: 6
+    scatterUnwielded: 7
+    baseFireRate: 10
+    burstScatterMult: 4
     modifiers:
       FullAuto:
-        maxScatterModifier: 12 # SCATTER_AMOUNT_TIER_5 (6) * 2
-        shotsToMaxScatter: 20  # FULL_AUTO_SCATTER_PEAK_TIER_2 (20)
+        maxScatterModifier: 4
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 40
     baseFireModes:
     - FullAuto
   - type: Sprite
