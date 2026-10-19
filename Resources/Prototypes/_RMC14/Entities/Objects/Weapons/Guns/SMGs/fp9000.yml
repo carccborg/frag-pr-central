@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: CMBaseWeaponSMG
   name: FN FP9000 Submachinegun
   id: RMCWeaponSMGFP9000
@@ -15,7 +15,7 @@
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/SMGs/fp9000.rsi
   - type: Gun
-    shotsPerBurst: 3
+    shotsPerBurst: 3  # BURST_AMOUNT_TIER_3 (3)
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/pdw90_shot.ogg
   - type: RMCSelectiveFire
@@ -23,27 +23,27 @@
     - SemiAuto
     - Burst
     - FullAuto
-    recoilWielded: 1
-    recoilUnwielded: 1
-    scatterWielded: 10
-    scatterUnwielded: 14
-    baseFireRate: 6.66
-    burstScatterMult: 7
+    recoilWielded: 0      # inherits CM default of RECOIL_OFF (0)
+    recoilUnwielded: 1    # RECOIL_AMOUNT_TIER_5 (1)
+    scatterWielded: 10    # SCATTER_AMOUNT_TIER_6 (5) * 2
+    scatterUnwielded: 14  # SCATTER_AMOUNT_TIER_4 (7) * 2
+    baseFireRate: 6.66    # FIRE_DELAY_TIER_SMG (1 / (1.5 / 10))
+    burstScatterMult: 7   # SCATTER_AMOUNT_TIER_4 (7)
     modifiers:
       Burst:
-        fireDelay: 0.0999
-        maxScatterModifier: 10
+        fireDelay: 0.0999 # FIRE_DELAY_TIER_SMG (1.5 / 10 * 0.666)
+        maxScatterModifier: 10 # default for burst
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 6
       FullAuto:
-        maxScatterModifier: 3
+        maxScatterModifier: 3 # FIRE_DELAY_TIER_SMG (1.5) * 2
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 4
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.25
-    accuracyMultiplierUnwielded: 0.75
+    accuracyMultiplier: 1.25  # BASE_ACCURACY_MULT (1) + HIT_ACCURACY_MULT_TIER_5 (0.25)
+    accuracyMultiplierUnwielded: 0.75 # BASE_ACCURACY_MULT (1) - HIT_ACCURACY_MULT_TIER_5 (0.25)
   - type: MagazineAmmoProvider
     autoEject: false
     soundAutoEject: null
@@ -89,7 +89,7 @@
       rmc-aslot-barrel: 0.81, 0.04
       rmc-aslot-underbarrel: 0.58, -0.25
   - type: GunDamageModifier
-    multiplier: 1.05
+    multiplier: 1.05 # BASE_BULLET_DAMAGE_MULT (1) + BULLET_DAMAGE_MULT_TIER_1 (0.05)
 
 - type: entity
   parent: CMBaseWeaponSMG
@@ -116,27 +116,27 @@
     - SemiAuto
     - Burst
     - FullAuto
-    recoilWielded: 1
-    recoilUnwielded: 1
-    scatterWielded: 8
-    scatterUnwielded: 14
-    baseFireRate: 6.66
-    burstScatterMult: 7
+    recoilWielded: 0      # inherits CM default of RECOIL_OFF (0)
+    recoilUnwielded: 1    # RECOIL_AMOUNT_TIER_5 (1)
+    scatterWielded: 8     # SCATTER_AMOUNT_TIER_7 (4) * 2
+    scatterUnwielded: 14  # SCATTER_AMOUNT_TIER_4 (7) * 2
+    baseFireRate: 6.66    # FIRE_DELAY_TIER_SMG (1 / (1.5 / 10))
+    burstScatterMult: 7   # SCATTER_AMOUNT_TIER_4 (7)
     modifiers:
       Burst:
-        fireDelay: 0.0999
-        maxScatterModifier: 10
+        fireDelay: 0.0999 # FIRE_DELAY_TIER_SMG (1.5 / 10 * 0.666)
+        maxScatterModifier: 10 # default for burst
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 6
       FullAuto:
-        maxScatterModifier: 2
+        maxScatterModifier: 3 # FIRE_DELAY_TIER_SMG (1.5) * 2
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
-        shotsToMaxScatter: 20
+        shotsToMaxScatter: 20 # FULL_AUTO_SCATTER_PEAK_TIER_2 (20)
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.35
-    accuracyMultiplierUnwielded: 0.75
+    accuracyMultiplier: 1.35 # BASE_ACCURACY_MULT (1) + HIT_ACCURACY_MULT_TIER_7 (0.35)
+    accuracyMultiplierUnwielded: 0.75 # BASE_ACCURACY_MULT (1) - HIT_ACCURACY_MULT_TIER_5 (0.25)
   - type: MagazineAmmoProvider
     autoEject: false
     soundAutoEject: null
@@ -183,7 +183,7 @@
       rmc-aslot-barrel: 0.81, 0.04
       rmc-aslot-underbarrel: 0.58, -0.25
   - type: GunDamageModifier
-    multiplier: 1.2
+    multiplier: 1.2 # BASE_BULLET_DAMAGE_MULT (1.0) + BULLET_DAMAGE_MULT_TIER_4 (0.20)
 
 - type: entity
   parent: CMMagazineRifleBase
